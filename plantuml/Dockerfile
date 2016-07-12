@@ -1,5 +1,6 @@
 FROM larmog/armhf-alpine-java:jdk-8u73
 MAINTAINER Darren Park  <sogeuni@gmail.com>
+LABEL architecture="ARMv7"
 
 ENV MAVEN_VERSION 3.3.9
 
