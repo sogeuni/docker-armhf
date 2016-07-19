@@ -15,7 +15,7 @@ RUN set -x && \
 # fix base_path issue
 WORKDIR /usr/lib/ruby/gems/2.3.0/gems
 RUN sed -i 's/\/\#{p.url_path}/\#{@wiki.base_path}\/\#{p.url_path}/g' ./gollum-lib-4.2.1/lib/gollum-lib/macro/global_toc.rb
-RUN sed -i 's/\/\#{p.url_path}/\#{@wiki.base_path}\/\#{p.url_path}/g' ./gollum-lib-4.2.1/lib/gollum-lib/macro/navigation.rb
+RUN sed -i 's/\/\#{page.url_path}/\#{@wiki.base_path}\/\#{page.url_path}/g' ./gollum-lib-4.2.1/lib/gollum-lib/macro/navigation.rb
 RUN sed -i 's/redirect options[:route_prefix]/redirect (request.script_name || '') + options[:route_prefix]/g' ./omnigollum-0.1.4/lib/omnigollum.rb
 
 VOLUME /gollum-wiki
