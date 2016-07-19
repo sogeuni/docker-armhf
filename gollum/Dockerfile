@@ -2,9 +2,9 @@ FROM armhf/alpine
 MAINTAINER Darren Park  <sogeuni@gmail.com>
 
 RUN set -x && \
-    apk --update add bash git ruby ruby-rdoc ruby-dev ruby-irb build-base icu-dev zlib-dev && \
+    apk --update add bash git ruby ruby-rdoc ruby-dev ruby-irb build-base icu-dev zlib-dev cmake && \
     gem install gollum gollum-rugged_adapter redcarpet omniauth-google-oauth2 omnigollum omniauth --no-ri --no-rdoc && \
-    apk --purge del ruby-dev build-base icu-dev zlib-dev && \
+    apk --purge del ruby-dev build-base icu-dev zlib-dev cmake && \
     apk add icu zlib && \
     rm -rf /var/cache/apk/*
 
