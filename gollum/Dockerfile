@@ -16,7 +16,7 @@ RUN set -x && \
 WORKDIR /usr/lib/ruby/gems/2.3.0/gems
 RUN sed -i 's/\/\#{p.url_path}/\#{@wiki.base_path}\/\#{p.url_path}/g' ./gollum-lib-4.2.1/lib/gollum-lib/macro/global_toc.rb
 RUN sed -i 's/\/\#{page.url_path}/\#{@wiki.base_path}\/\#{page.url_path}/g' ./gollum-lib-4.2.1/lib/gollum-lib/macro/navigation.rb
-RUN sed -i 's/redirect options\[:route_prefix\]/redirect (request.script_name || \'\') + options\[:route_prefix\]/g' ./omnigollum-0.1.4/lib/omnigollum.rb
+RUN sed -i 's/redirect options\[:route_prefix\]/redirect (request.script_name || '\'''\'') + options[:route_prefix]/g' ./omnigollum-0.1.4/lib/omnigollum.rb
 
 # add redcarpet options
 RUN sed -i 's/(Redcarpet::Render::HTML)/(Redcarpet::Render::HTML, autolink: true, tables: true, footnotes: true, strikethrough: true)/g' ./github-markup-1.4.0/lib/github/markup/markdown.rb
