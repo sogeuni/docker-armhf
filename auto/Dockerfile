@@ -1,5 +1,11 @@
 FROM armhf/alpine
 
-COPY qemu-arm /usr/bin/qemu-arm-static
+ENV QEMU_EXECVE 1
+COPY . /usr/bin
 
-RUN ["/usr/bin/qemu-arm-static", "/bin/sh", "-c", "apk add --update git"] 
+
+RUN [ "cross-build-start" ]
+
+RUN apk add --update git
+
+RUN [ "cross-build-end" ]
